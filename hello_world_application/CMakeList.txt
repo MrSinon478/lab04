@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.27)
+project(hello_world)
+
+set(CMAKE_CXX_STANDARD 11)
+
+// Путь к библиотеке formatter_ex
+set(FORMATTER_LIB_PATH "lab04/formatter_ex_lib")
+
+// Путь к заголовочным файлам formatter_ex
+set(FORMATTER_INCLUDE_PATH "lab04/formatter_ex_include")
+
+// Добавляем директорию с заголовочными файлами formatter_ex
+include_directories(${FORMATTER_INCLUDE_PATH})
+
+// Добавляем исполняемый файл hello_world
+add_executable(hello_world main.cpp)
+
+# Линкуем библиотеку formatter_ex
+target_link_libraries(hello_world ${FORMATTER_LIB_PATH}/libformatter_ex.a)
