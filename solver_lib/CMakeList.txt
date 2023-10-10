@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.27)
+project(solver)
+
+set(CMAKE_CXX_STANDARD 11)
+
+# Путь к библиотеке formatter_ex
+set(FORMATTER_LIB_PATH "lab04/formatter_ex_lib")
+
+# Путь к заголовочным файлам formatter_ex
+set(FORMATTER_INCLUDE_PATH "lab04/formatter_ex_include")
+
+# Добавляем директорию с заголовочными файлами formatter_ex
+include_directories(${FORMATTER_INCLUDE_PATH})
+
+# Добавляем исполняемый файл solver
+add_executable(solver main.cpp)
+
+# Линкуем библиотеки formatter_ex и solver_lib
+target_link_libraries(solver
+  ${FORMATTER_LIB_PATH}/libformatter_ex.a
+  ${SOLVER_LIB_PATH}/libsolver_lib.a
+)
