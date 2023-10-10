@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.27) // указания минимальной версии CMake
+
+project(formatter_ex) // созадние и указанием имени проекта
+
+add_subdirectory(formatter) // инструкцию add_sub для добавления подкаталога, чтобы компилятор мог найти библиотеку
+
+include_directories(formatter) // для добавления пути к заголовочным файлам библиотеки
+
+add_library(formatter_ex 
+    formatter_ex.cpp 
+    formatter_ex.h
+) // для создания цели библиотеки
+
+target_link_libraries(formatter_ex formatter) // зависимость от библиотеки formatter
+
+add_executable(formatter_ex_app 
+    main.cpp
+)
+
+target_link_libraries(formatter_ex_app formatter_ex) 
+//инструкцию для создания цели исполняемого файла программы, которая будет использовать библиотеку formatter_ex
+
